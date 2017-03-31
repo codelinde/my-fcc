@@ -1,4 +1,4 @@
-
+// noprotect
 function smallestCommons(arr) {
 
     var sortedArgs = arr.sort(function(a, b) {
@@ -20,24 +20,22 @@ function smallestCommons(arr) {
         newArr.push(counter);
     }
 
-    var lowestPossible = limit;
+    var secondCounter = limit;
+    var passed;
 
-    var flag = true;
-
-    while(flag) {
-        function isDivisible(element) { 
-            return element % lowestPossible === 0;
-        }
-        if (newArr.every(isDivisible)) {
-            return lowestPossible;
-            flag = false;
-        }
+    while (true) {                                  
+        passed = newArr.every(function(item) {   
+            return secondCounter % item === 0;            
+        });
+        if (passed) {
+            return secondCounter;                         
+        } 
         else {
-            lowestPossible++;
+            secondCounter++;                             
         }
     }
 
 }
 
 
-smallestCommons([1,5,7]);
+smallestCommons([1,5]);
