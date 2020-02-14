@@ -4,7 +4,7 @@
 `/` indicates end of regular expression  
 So, everything between `/` and `/`  
 
-You can put as much as you want, so `/cat/` would match on ‘Cathy’ but not on ‘tack’ ; e.g. the string must contain the exact expression within the slashes to match
+You can put as much as you want, so `/cat/` would match on 'Cathy' but not on 'tack' ; e.g. the string must contain the exact expression within the slashes to match
 
 `|` (pipe) can be used to indicate OR  
 `/1|2|3/.test(“123”)` will be `true`  
