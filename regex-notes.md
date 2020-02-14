@@ -28,7 +28,7 @@ Non Whitespaces are `\S`
 `$` indicates the end of a string
 
 So, `/^b/.test(“bee”);` is `true`, but `.test("Abe")` is not   
-In short, the character after ^ must be at the start of the string in order for the statement to be true
+In short, the character after `^` must be at the start of the string in order for the statement to be true
 
 Similarly, `/ee$/.test("bee")` is true, but `.test("eek")` is not
 
@@ -38,7 +38,7 @@ Similarly, `/ee$/.test("bee")` is true, but `.test("eek")` is not
 `+` means 1+ (I need at least 1)  
 `*` means 0+ is a bit of a combination of the above, indicating none, one, or more than one
 
-`Matching a hexadecimal /#?\w\w\w\w\w\w/`
+Matching a hexadecimal `/#?\w\w\w\w\w\w/`
 
 
 
