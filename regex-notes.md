@@ -27,7 +27,7 @@ Non Whitespaces are `\S`
 `^` indicates the start of a string  
 `$` indicates the end of a string
 
-So, `/^b/.test(“bee”);` evaluates as `true`, but `.test("Abe")` does not
+So, `/^b/.test(“bee”);` evaluates as `true`, but `.test("Abe")` does not  
 In short, the character after `^` must be at the start of the string in order for the statement to be true
 
 Similarly, `/ee$/.test("bee")` evaluates as `true`, but `.test("eek")` does not  
