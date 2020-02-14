@@ -7,11 +7,11 @@ So, everything between `/` and `/`
 You can put as much as you want, so `/cat/` would match on 'Cathy' but not on 'tack' ; e.g. the string must contain the exact expression within the slashes to match
 
 `|` (pipe) can be used to indicate OR  
-`/1|2|3/.test(“123”)` will be `true`  
-`.test(“31”)` will also be `true`
+`/1|2|3/.test(“123”)` evaluates as `true`  
+`.test(“31”)` also evaluates as `true`
 
 We can also just put characters between brackets `[]`  
-`/[123]/.test(“123”)` and `.test(“31”)` returns `true`
+`/[123]/.test(“123”)` and `.test(“31”)` evaluates as `true`
 
 To avoid typing each number in the range, we can instead type `/[1-3]/`  
 Also works for ranges of letters
@@ -27,10 +27,10 @@ Non Whitespaces are `\S`
 `^` indicates the start of a string  
 `$` indicates the end of a string
 
-So, `/^b/.test(“bee”);` is `true`, but `.test("Abe")` is not   
+So, `/^b/.test(“bee”);` evaluates as `true`, but `.test("Abe")` does not
 In short, the character after `^` must be at the start of the string in order for the statement to be true
 
-Similarly, `/ee$/.test("bee")` is true, but `.test("eek")` is not
+Similarly, `/ee$/.test("bee")` evaluates as `true`, but `.test("eek")` does not  
 
 `/^[0-9]$/` means “Go to the start of the string and look for a single numeral between 0 and 9..this numeral is also the ending of the string”.
 
