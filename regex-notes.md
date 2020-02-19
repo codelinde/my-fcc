@@ -40,5 +40,5 @@ Similarly, `/ee$/.test("bee")` evaluates as `true`, but `.test("eek")` does not
 
 Matching a hexadecimal `/#?\w\w\w\w\w\w/`
 
-
-
+You can check for groups of characters with parentheses `()`.  
+So, for example, if you want to find either Penguin or Pumpkin, you could type `/P(engu|umpk)in/g`
