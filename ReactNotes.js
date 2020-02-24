@@ -1,3 +1,14 @@
+// REACT TERMINOLOGY
+/*
+State - any data your application needs to know about that can change over time. Apps should respond to state changes and present an updated UI when necessary.
+
+Stateless FUNCTIONAL Component - any FUNCTION(!!!) you write which accepts props and returns JSX
+
+Stateless Component (NOT FUNCTIONAL) - a CLASS (NOT FUNCTION!!!) that extends React.Component, but does NOT use internal state
+
+Stateful Component (may be called 'component' or 'React components') - any component that DOES maintain its own internal state 
+*/
+
 class Kitten extends React.Component {
   constructor(props) {
     super(props);
@@ -63,3 +74,53 @@ class MyComponent extends React.Component{
 }
 
 ReactDOM.render(<MyComponent />, document.getElementById('challenge-node'))
+
+
+// Custom HTML attributes can be passed TO a (STATELESS FUNCTIONAL) component.
+
+<App>
+  <Welcome user='Mark' />
+</App>
+
+const Welcome = (props) => <h1>Hello, {props.user}</h1>
+
+// We have defined the attribute Mark of the property user
+
+// NOTE: For prop values to evaluate as JS, they need to be enclosed in curly brackets e.g...
+
+date = {Date()}
+
+// Default props can be assigned in case no value is supplied.
+
+MyComponent.defaultProps = {
+  location: 'San Francisco'
+}
+
+// So, if you have
+<MyComponent />
+
+//But choose not to supply a 'location', San Francisco will be the value of the prop.
+
+// IMPORTANT NOTE: If the value of a prop passed into a component needs to be an integer, it must be enclosed in curly brackets
+
+{100}
+
+// EXAMPLE of overriding default props
+
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items quantity={10} />
+  }
+};
+
