@@ -124,3 +124,18 @@ class ShoppingCart extends React.Component {
   }
 };
 
+// PropTypes
+
+// You can set propTypes on a component to require the data type to be a certain type. For example:
+
+MyComponent.propTypes = {
+  handleClick: PropTypes.func.isRequired 
+}
+
+// This tells React that handleClick is a required property and that its type must be a function
+
+// array, bool, func, number, object, string, symbol, etc. See docs: https://reactjs.org/docs/typechecking-with-proptypes.html
+
+// However, proptypes has to be imported separatelky from React
+import PropTypes from 'prop-types';
+
