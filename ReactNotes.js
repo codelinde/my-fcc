@@ -7,6 +7,8 @@ Stateless FUNCTIONAL Component - any FUNCTION(!!!) you write which accepts props
 Stateless Component (NOT FUNCTIONAL) - a CLASS (NOT FUNCTION!!!) that extends React.Component, but does NOT use internal state
 
 Stateful Component (may be called 'component' or 'React components') - any component that DOES maintain its own internal state 
+
+ES6 Class Component - A component that uses ES6 class syntax to extend React.Component.
 */
 
 class Kitten extends React.Component {
@@ -138,4 +140,26 @@ MyComponent.propTypes = {
 
 // However, proptypes has to be imported separatelky from React
 import PropTypes from 'prop-types';
+
+// Anytime you refer to a class component within itself, you use the this keyword. To access props within a class component, you preface the code that you use to access it with this. For example, if an ES6 class component has a prop called data, you write
+ {this.props.data}
+
+ // Generally, it is considered better to minimize statefulness and emphasize stateless functional components where possible in order to follow the flow of state throughout your application.
+
+//  You create state in a React component by declaring a state property on the component class in its constructor. This initializes the component with state when it is created. The state property must be set to a JavaScript object. Declaring it looks like this:
+
+this.state = {
+  // describe your state here
+}
+
+// you MUST create a class component by extending React.Component in order to create state like this.
+
+// Once you define a component's initial state, you can display any part of it in the UI that is rendered. If a component is stateful, it will always have access to the data in state in its render() method. You can access the data with 
+this.state
+
+//If you want to access a state value within the return of the render method, you HAVE TO enclose the value in curly braces.
+
+// If you make a component stateful, no other components are aware of its state--it is encapsualated/local to that component, unless you pass state data to a child component as props.
+
+
 
