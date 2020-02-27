@@ -161,5 +161,37 @@ this.state
 
 // If you make a component stateful, no other components are aware of its state--it is encapsualated/local to that component, unless you pass state data to a child component as props.
 
+// State can also be accessed by typing JavaScript directly into the render() method before the return statement. In other words, you can declare functions, access data from state/props, perform computations on this data, then assign it to variables, which can be accessed in the return statement.
 
+// React docs on State and Lifestyle: https://reactjs.org/docs/state-and-lifecycle.html
 
+// Aside from initializing state in the constructor, you can also update a component's state by calling this.setState(), where the argument is an object of key-value pairs, with keys as state properties and values as updated state data.
+
+this.setState({
+  username: 'Balthazar'
+});
+
+// ALWAYS use this.setState() when changes occur rather than modifying state directly.
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'Initial State'
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      name: 'React Rocks!'
+    })
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick}>Click Me</button>
+        <h1>{this.state.name}</h1>
+      </div>
+    );
+  }
+};
