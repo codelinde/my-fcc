@@ -236,3 +236,65 @@ class MyComponent extends React.Component {
 //If you have a large set of styles, you can assign a style object to a constant to keep your code organized.
 
 //You can also write JavaScript directly in your render methods, before the return statement, without inserting it inside of curly braces. This is because it is not yet within the JSX code. When you want to use a variable later in the JSX code inside the return statement, you place the variable name inside curly braces.
+
+//you can use the && logical operator to perform conditional logic in a more concise way. This is possible because you want to check if a condition is true, and if it is, return some markup.  Example:
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: true
+    }
+    this.toggleDisplay = this.toggleDisplay.bind(this);
+  }
+  toggleDisplay() {
+    this.setState(state => ({
+      display: !state.display
+    }));
+  }
+  render() {
+    return (
+       <div>
+         <button onClick={this.toggleDisplay}>Toggle Display</button>
+         {this.state.display && <h1>Displayed!</h1>}
+       </div>
+    );
+  }
+};
+
+// Ternary operators may be employed inside of return statements e.g. 
+condition ? expressionIfTrue : expressionIfFalse
+
+// Nested ternary operators are also possible. Example:
+{
+  this.state.userAge == '' ? buttonOne : 
+    this.state.userAge >= 18 ? buttonTwo : buttonThree
+}
+
+// you can render CSS conditionally based on the state of a React component. To do this, you check for a condition, and if that condition is met, you modify the styles object that's assigned to the JSX elements in the render method.
+
+// This is a dramatic shift from the more traditional approach of applying styles by modifying DOM elements directly (e.g. the jQuery method). In that approach, you must keep track of when elements change and also handle the actual manipulation directly. It can become difficult to keep track of changes, potentially making your UI unpredictable. When you set a style object based on a condition, you describe how the UI should look as a function of the application's state. There is a clear flow of information that only moves in one direction.
+
+// When you create an array of elements, each one needs a key attribute set to a unique value. React uses these keys to keep track of which items are added, changed, or removed. This helps make the re-rendering process more efficient when the list is modified in any way. Keys only need to be unique between sibling elements, they don't need to be globally unique.
+
+
+
+// There are some use cases where it makes sense to render a React component on the server. Since React is a JavaScript view library and you can run JavaScript on the server with Node, this is possible. In fact, React provides a renderToString() method you can use for this purpose.
+
+// There are two key reasons why rendering on the server may be used in a real world app:
+
+  // 1) Without doing this, your React apps would consist of a relatively empty HTML file and a large bundle of JavaScript when it's initially loaded to the browser. This may not be ideal for search engines that are trying to index the content of your pages so people can find you. If you render the initial HTML markup on the server and send this to the client, the initial page load contains all of the page's markup which can be crawled by search engines.
+
+  // 2) This creates a faster initial page load experience because the rendered HTML is smaller than the JavaScript code of the entire app. React will still be able to recognize your app and manage it after the initial load.
+
+  // Example: 
+  class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div/>
+  }
+};
+
+ReactDOMServer.renderToString(<App/>)
