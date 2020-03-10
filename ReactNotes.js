@@ -222,3 +222,17 @@ class MyComponent extends React.Component {
     );
   }
 };
+
+// Common React paradigms:
+//1) unidirectional data flow: State flows in one direction down the tree of your application's components, from the stateful parent component to child components. The child components only receive the state data they need. 
+//2) complex stateful apps can be broken down into just a few, or maybe a single, stateful component. The rest of your components simply receive state from the parent as props, and render a UI from that state. It begins to create a separation where state management is handled in one part of code and UI rendering in another.
+
+//You can pass state as props to child components, but you're not limited to passing data. You can also pass handler functions or any method that's defined on a React component to a child component. This is how you allow child components to interact with their parent components. You pass methods to a child just like a regular prop. It's assigned a name and you have access to that method name under this.props in the child component.
+
+//The best practice with React is to place API calls or any calls to your server in the lifecycle method componentDidMount(). This method is called after a component is mounted to the DOM. Any calls to setState() here will trigger a re-rendering of your component. When you call an API in this method, and set your state with the data that the API returns, it will automatically trigger an update once you receive the data.
+
+//Inline styles are done using double brackets like a JS object (that React has to surround in brackets to interpret as JS) rather than surrounding with quotes as in normal HTML attributes. Property names must be in camelCase not kebab-case. px can be omitted from font size. Property values should generally be written in quotes.
+
+//If you have a large set of styles, you can assign a style object to a constant to keep your code organized.
+
+//You can also write JavaScript directly in your render methods, before the return statement, without inserting it inside of curly braces. This is because it is not yet within the JSX code. When you want to use a variable later in the JSX code inside the return statement, you place the variable name inside curly braces.
